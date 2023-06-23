@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <h1 class="head">SAVE THE UNIVERSE</h1>
+
+        <div class="mainContainer">
+            <div class="playerOne">
+                <h1 class="pOne">Player 1</h1>
+                <img src="https://64.media.tumblr.com/1afdad26e4e23ab2c43770964cbbb547/tumblr_mfr3j98uwG1s0qwlko1_500.gif" alt="" class="shipOne">
+                <div class="healthOne">HULL:</div>
+                <button class="attackOne" onclick="engage(activeShip)">ATTACK</button>
+            </div>
+
+            <div id="consoleLog" class="consoleLog">
+                <img src="" alt="" class="gameOverScreen">
+            </div>
+           
+            <div class="playerTwo">
+                <h1 class="pTwo">Player 2</h1>
+                <img src="https://images.squarespace-cdn.com/content/v1/5405f725e4b0a35ea020882f/1686582281326-RXTFIQDMHAZKH309Q1OQ/MacBeth-spaceship1_AdobeExpress.gif?format=500w" alt="" class="shipTwo">
+                <div class="tileTwo"></div>
+                <button class="attackTwo" onclick="explodeReload()">RELOAD</button>
+            </div>
+
+               
+
+        </div>
+       
+
+
+
+        
+        <script src="app.js" async defer></script>
+    </body>
+</html>
