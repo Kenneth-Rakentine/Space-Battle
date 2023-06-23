@@ -83,7 +83,7 @@ const p1Damage = ()=>{
     if (playerOne.hull <= 0){
         gameOver();
         gameScreen(); 
-        // reloadWindow();
+        setTimeout(reloadWindow, 1000);
     } else {
         engage(activeShip)
     }
@@ -92,7 +92,8 @@ const p1Damage = ()=>{
 const enemyDamage = ()=>{
     console.log(activeShip.hull);
     if (activeShip.hull <= 0){
-        console.log("Player 2:", activeShip, "destroyed");
+        // console.log("Player 2:", activeShip, "destroyed");
+        console.log(`%cPlayer 2: ${activeShip} destroyed`, 'color: green; background-color: grey;');
         nextShip();
         counter++
         activeShip = enemyShips[counter]
@@ -133,8 +134,9 @@ const engage = () => {
         let strength = playerOne.firepower;
       health =(activeShip.hull -= strength);
       activeShip.hull = health;
-    console.log(playerOne.name, "firepower =", strength)
-      console.log(`${activeShip.name} hit! ${health} hull remaining`);
+    // console.log(playerOne.name, "firepower =", strength)
+    console.log(`%c${playerOne.name} %cfirepower = ${strength}`, 'color: blue; background-color:gainsboro;font-weight: bold;', 'background-color:red; color:white');
+    console.log(`%c${activeShip.name} hit! ${health} hull remaining`, 'color:green; background-color:palegoldenrod');
 
 
       if (activeShip.hull <= 0) {
@@ -155,22 +157,16 @@ const engage = () => {
 
 const nextShip = ()=>{
     console.log(activeShip);
-
-
-    // let enemyTitle = document.querySelector('.titleTwo')
-    // enemyTitle.replaceWith()
-  
-
 }
 
 const p2Turn = () => {
     if (activeShip.accuracy <= 5) {
       const damage = activeShip.firepower;
       health = (playerOne.hull -= damage);
-      console.log(`${playerOne.name} hit with ${damage}! ${playerOne.hull} hull remaining`);
+      console.log(`%c${playerOne.name} %chit with ${damage}! ${playerOne.hull} hull remaining`, 'color:blue; background-color:gainsboro;font-weight:bolder; ', 'color:blue; border: solid gainsboro');
       p1Damage();
     } else {
-      console.log(`${activeShip.name} missed`);
+      console.log(`%c${activeShip.name} missed`, 'color:green; font-weight:bold;');
       p1Damage();
     }
   };
