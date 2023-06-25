@@ -75,6 +75,40 @@ justify-content:end;
 z-index: 2;
 }
 
+.attackOne:hover{
+    display:flex;
+    height:28px;
+    opacity:1;
+    background-color:rgb(218, 35, 35);
+    color:rgba(255, 255, 255, 0.945);
+    box-shadow:-10px 4px 8px rgb(224, 177, 177);
+    font-size:19.5;
+    font-weight: bolder;
+    margin-left:-38px;
+    margin-top:10px;
+    justify-content:end;
+    z-index: 2;
+    cursor:pointer;
+}
+
+.p1Title{
+    display:flex;
+    align-self:flex-end;
+    height:30px;
+    width:200px;
+    margin-left:-230px;
+    margin-right:11px;
+    margin-bottom:100px;
+    background-color:white;
+    font-size:20px;
+    align-items:center;
+    text-align:center;
+    justify-content:center;
+    
+    
+    /* border:solid red; */
+}
+
 .playerTwo{
     display:flex;
     border:solid rgb(128, 207, 128);
@@ -105,6 +139,7 @@ display:flex; */
     margin-left:-80px;
 }
 
+/* reload */
 .attackTwo{
     display:flex;
     height:24px;
@@ -116,6 +151,38 @@ display:flex; */
     margin-top:10px;
     justify-content:end;
     z-index: 2;
+}
+
+.attackTwo:hover{
+    display:flex;
+    height:28px;
+    opacity:1;
+    background-color:rgb(218, 35, 35);
+    color:rgba(255, 255, 255, 0.945);
+    box-shadow:-10px 4px 8px rgb(224, 177, 177);
+    font-size:19.5;
+    font-weight: bolder;
+    margin-left:-110px;
+    margin-top:10px;
+    justify-content:end;
+    z-index: 2;
+    cursor:pointer;
+}
+
+#p2Title{
+    display:flex;
+    /* align-items:flex-end; */
+    align-self:flex-end;
+    height:30px;
+    width:200px;
+    margin-left:-218px;
+    margin-right:10px;
+    margin-bottom:100px;
+    background-color:white;
+    font-size:20px;
+    align-items:center;
+    text-align:center;
+    justify-content:center;
 }
 
 .healthOne{
@@ -158,3 +225,11 @@ justify-content:center;
     width:800px; */
 }
 
+/* .laserClear{
+    display:none;
+}
+
+.laserr{
+    display:flex;
+    justify-content:center;
+} */

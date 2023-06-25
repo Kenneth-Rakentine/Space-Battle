@@ -11,19 +11,22 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-
+        <!--Game Title-->
         <h1 class="head">SAVE THE UNIVERSE</h1>
-
+        
+        <!--main screen-->
         <div class="mainContainer">
             <div class="playerOne">
                 <h1 class="pOne">Player 1</h1>
                 <img src="https://64.media.tumblr.com/1afdad26e4e23ab2c43770964cbbb547/tumblr_mfr3j98uwG1s0qwlko1_500.gif" alt="" class="shipOne">
                 <div class="healthOne">HULL:</div>
                 <button class="attackOne" onclick="engage(activeShip)">ATTACK</button>
+                <div class="p1Title">USS ASSEMBLY</div>
             </div>
-
+            <!--game over - center screen-->
             <div id="consoleLog" class="consoleLog">
                 <img src="" alt="" class="gameOverScreen">
+                <!-- <img src="" alt="" class="laserr"> -->
             </div>
            
             <div class="playerTwo">
@@ -31,6 +34,7 @@
                 <img src="https://images.squarespace-cdn.com/content/v1/5405f725e4b0a35ea020882f/1686582281326-RXTFIQDMHAZKH309Q1OQ/MacBeth-spaceship1_AdobeExpress.gif?format=500w" alt="" class="shipTwo">
                 <div class="tileTwo"></div>
                 <button class="attackTwo" onclick="explodeReload()">RELOAD</button>
+                <div class="p2name" id= "p2Title">shipOne</div>
             </div>
 
                
