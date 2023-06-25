@@ -3,6 +3,7 @@
 body{
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     /* background-color:rgba(167, 165, 165, 0.24); */
+    background-color:rgb(65, 61, 61);
 }
 
 .head{
@@ -233,3 +234,23 @@ justify-content:center;
     display:flex;
     justify-content:center;
 } */
+
+/* .logTxt{
+    display:none;
+} */
+
+.organizer{
+    display:flex;
+    border:red;
+    height:800px;
+    width:100px;
+    background-image:url("https://31.media.tumblr.com/tumblr_m9f65ui8151rzjlc4o1_500.gif");
+    color:rgb(211, 187, 187);
+    font-size:30px;
+    justify-content:center;
+    align-self:center;
+    align-items:center;
+    text-align:center;
+    line-height:60px;
+    margin-top:165px;
+}

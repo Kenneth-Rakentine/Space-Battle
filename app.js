@@ -3,7 +3,6 @@
 const generateRandomNum = (min, max)=>{
     let rand = Math.floor(Math.random() * (max - min) + min);
     return rand;
-
 };
 
 //player One ship object with attributes
@@ -74,13 +73,22 @@ console.log("%c Player 2:", 'color:green; font-size 48px;', activeShip)
 
 //__________________________
 
+//CONSOLE LOG Text to Screen via consoleLog div:
 
+// const consoleToScreen = (content)=>{
+//     let screen = document.querySelector('.consoleLog')
+//     let printer = document.createElement('div')
+//     printer.setAttribute('class','organizer')
+//     printer.innerHTML = content
+//     screen.append(printer)
+// }
 
 //__________________________
 
 //main factor: check p1 damage (if less than or equal to zero, game over and initialize game over screen)
 const p1Damage = ()=>{
-    console.log("%c Player 1 Hull:",'color:blue; font-size:24;', playerOne.hull)
+    console.log("%c Player 1 Hull:",'color:blue; font-size:24;', playerOne.hull);
+    // consoleToScreen(playerOne.hull);
     if (playerOne.hull <= 0){
         gameOver();
         gameScreen(); 
@@ -94,7 +102,6 @@ const p1Damage = ()=>{
 const enemyDamage = ()=>{
     console.log(activeShip.hull);
     if (activeShip.hull <= 0){
-        // console.log("Player 2:", activeShip, "destroyed");
         console.log(`%cPlayer 2: ${activeShip} destroyed`, 'color: green; background-color: grey;');
         nextShip();
         counter++
@@ -156,6 +163,7 @@ const engage = () => {
     // console.log(playerOne.name, "firepower =", strength)
     console.log(`%c${playerOne.name} %cATTACKS! firepower = ${strength}`, 'color: blue; background-color:gainsboro;font-weight: bold;', 'background-color:red; color:white');
     console.log(`%c${activeShip.name} %chit with ${damage2}! ${health} hull remaining`, 'color:green; background-color:lightgreen;font-weight:bolder; ', 'color:green; border: solid green');
+    // consoleToScreen("Player 1 ATTACKS!")
 
 //if p2 health falls below zero, promp user to retreat, log "destroyed" & initialize explode p2 animation, move to next ship in p2 object array, log next p2 ship. else: p2 attacks p1 (if p2 misses, move onto p2 attack turn elselog "missed")
       if (activeShip.hull <= 0) {
