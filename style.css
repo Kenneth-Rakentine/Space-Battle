@@ -221,7 +221,7 @@ justify-content:center;
 }
 
 .gameOverScreen{
-    height:400px;
+    height:800px;
     /* height:600px;
     width:800px; */
 }
@@ -241,8 +241,8 @@ justify-content:center;
 
 .organizer{
     display:flex;
-    border:red;
-    height:800px;
+    /* border:red; */
+    height:400px;
     width:100px;
     background-image:url("https://31.media.tumblr.com/tumblr_m9f65ui8151rzjlc4o1_500.gif");
     color:rgb(211, 187, 187);

@@ -75,20 +75,32 @@ console.log("%c Player 2:", 'color:green; font-size 48px;', activeShip)
 
 //CONSOLE LOG Text to Screen via consoleLog div:
 
-// const consoleToScreen = (content)=>{
-//     let screen = document.querySelector('.consoleLog')
-//     let printer = document.createElement('div')
-//     printer.setAttribute('class','organizer')
-//     printer.innerHTML = content
-//     screen.append(printer)
-// }
+const consoleToScreen = (content)=>{
+    let screen = document.querySelector('.consoleLog')
+    let printer = document.createElement('div')
+    // printer.setAttribute('class','organizer')
+    printer.classList.add('organizer');
+    printer.innerHTML = content;
+    
+    // while (screen.firstChild){
+    //     screen.removeChild(screen.firstChild);
+    // }
+    screen.innerHTML = '';
+
+    screen.appendChild(printer);
+
+    // setTimeout(() => {
+    //     screen.innerHTML = '';
+    //   }, delay);
+    
+}
 
 //__________________________
 
 //main factor: check p1 damage (if less than or equal to zero, game over and initialize game over screen)
 const p1Damage = ()=>{
     console.log("%c Player 1 Hull:",'color:blue; font-size:24;', playerOne.hull);
-    // consoleToScreen(playerOne.hull);
+    consoleToScreen(`Player 1 Health = ${playerOne.hull}`, 600);
     if (playerOne.hull <= 0){
         gameOver();
         gameScreen(); 
@@ -103,6 +115,7 @@ const enemyDamage = ()=>{
     console.log(activeShip.hull);
     if (activeShip.hull <= 0){
         console.log(`%cPlayer 2: ${activeShip} destroyed`, 'color: green; background-color: grey;');
+        consoleToScreen(`${activeShip.name} DESTROYED!`, 500);
         nextShip();
         counter++
         activeShip = enemyShips[counter]
@@ -135,11 +148,23 @@ const gameOver = ()=>{
 }
 
 //game over screen animation
-gameScreen = () =>{
-    let gameEndScreen = document.querySelector('.gameOverScreen')
-    gameEndScreen.setAttribute('src', 'https://media4.giphy.com/media/dkuZHIQsslFfy/giphy.gif');
+// gameScreen = () =>{
+//     let gameEndScreen = document.querySelector('.gameOverScreen')
+//     gameEndScreen.setAttribute('src', 'https://media4.giphy.com/media/dkuZHIQsslFfy/giphy.gif');
     
-}
+// }
+
+//new gamescreen func to allow for consoleToSCreen createElement
+
+const gameScreen = () => {
+    let screen = document.querySelector('.consoleLog');
+    screen.innerHTML = '';
+    let image = document.createElement('img');
+    image.src = 'https://media4.giphy.com/media/dkuZHIQsslFfy/giphy.gif';
+    
+    screen.appendChild(image);
+  };
+
 
 // const laserBeam = () =>{
 //     let laser = document.querySelector('.gameOverScreen')
@@ -163,31 +188,36 @@ const engage = () => {
     // console.log(playerOne.name, "firepower =", strength)
     console.log(`%c${playerOne.name} %cATTACKS! firepower = ${strength}`, 'color: blue; background-color:gainsboro;font-weight: bold;', 'background-color:red; color:white');
     console.log(`%c${activeShip.name} %chit with ${damage2}! ${health} hull remaining`, 'color:green; background-color:lightgreen;font-weight:bolder; ', 'color:green; border: solid green');
-    // consoleToScreen("Player 1 ATTACKS!")
+    consoleToScreen(`${playerOne.name} 1 ATTACKS ${activeShip.name} with ${strength} FIREPOWER!`, 1000);
+    consoleToScreen(`${activeShip.name} HIT with ${damage2} Firepower! ${health} HULL remaining!`, 1000);
 
 //if p2 health falls below zero, promp user to retreat, log "destroyed" & initialize explode p2 animation, move to next ship in p2 object array, log next p2 ship. else: p2 attacks p1 (if p2 misses, move onto p2 attack turn elselog "missed")
       if (activeShip.hull <= 0) {
         console.log(`Player 2: ${activeShip.name} destroyed`);
         // laserBeam();
         explode2();
+        consoleToScreen(`${activeShip.name} DESTROYED!`, 1000);
         nextShip();
         counter++;
         activeShip = enemyShips[counter];
         console.log("Player 2:", activeShip, "Appears!");
+        consoleToScreen(`${activeShip.name} Appears!`, 1000);
         updateP2Title();
         setTimeout (explodeReload, 1000);
-        setTimeout(retreat, 2000);
+        setTimeout(retreat, 1400);
       } else {
         p2Turn();
       }
     } else {
       console.log(`${playerOne.name} missed`);
+      consoleToScreen(`${playerOne.name} Missed!`, 1000);
       p2Turn();
     }
   };
 
 const nextShip = ()=>{
     console.log(activeShip);
+    
 }
 
 //p2 attack: check accuracy, check p1 health against p2 firepower to determine damage.log p1 health, initialize p1 damage check function. else: log "p2 missed", move to p1 damage check
@@ -196,10 +226,14 @@ const p2Turn = () => {
       const damage = activeShip.firepower;
       health = (playerOne.hull -= damage);
       console.log(`%c${activeShip.name} %cATTACKS! Firepower = ${activeShip.firepower}`, 'background-color:lightgreen', 'background-color:red; color:white');
+      consoleToScreen(`${activeShip.name} Attacks! with ${activeShip.firepower} firepower`);
       console.log(`%c${playerOne.name} %chit with ${damage}! ${playerOne.hull} hull remaining`, 'color:blue; background-color:gainsboro;font-weight:bolder; ', 'color:blue; border: solid gainsboro');
+      consoleToScreen(`${playerOne.name} HIT with ${damage}! ${playerOne.hull} hull remaining`, 600);
+
       p1Damage();
     } else {
       console.log(`%c${activeShip.name} missed`, 'color:green; font-weight:bold;');
+      consoleToScreen(`${activeShip.name} missed!`, 500);
       p1Damage();
     }
   };
